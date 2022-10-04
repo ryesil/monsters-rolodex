@@ -11,9 +11,9 @@ const [filteredMonsters, setFilteredMonsters]=useState(monsters);
 
 
 useEffect(()=>{
-  fetch('https://jsonplaceholder.typicode.com/users').
-then((response)=>response.json()).
-then((users)=>setMonsters(users))
+  fetch('https://jsonplaceholder.typicode.com/users')
+.then((response)=>response.json())
+.then((users)=>setMonsters(users))
 },[])
 useEffect(()=>{
   const newFilteredMonsters = monsters.filter((monster)=>{
@@ -21,7 +21,7 @@ useEffect(()=>{
   });
 
   setFilteredMonsters(newFilteredMonsters);
-},[monsters,searchField])
+},[monsters,searchField,filteredMonsters])
 
 
 const onSearchChange=(event)=>{
